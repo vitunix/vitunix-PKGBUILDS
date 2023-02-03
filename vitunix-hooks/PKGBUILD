@@ -1,0 +1,32 @@
+# Maintainer : G0urav <https://github.com/heapbytes>
+# Developed by Team Vitunix
+
+pkgname="vitunix-hooks"
+pkgver=1.0
+pkgrel=1
+pkgdesc='Pacman hooks for vitunix OS to fix various system files'
+url="https://github.com/vitunix-OS/vitunix-packages"
+arch=('any')
+license=('GPL3')
+
+source=(
+  'vitunix-hooks-runner'
+  'vitunix-lsb-release.hook'
+  'vitunix-os-release.hook'
+)
+
+sha512sums=(
+  'SKIP'
+  'SKIP'
+  'SKIP'
+)
+
+package() {
+
+  local hooks=${pkgdir}/usr/share/libalpm/hooks
+  local bin=${pkgdir}/usr/bin
+
+  install -Dm644 vitunix-lsb-release.hook      	"$hooks"/vitunix-lsb-release.hook
+  install -Dm644 vitunix-os-release.hook       	"$hooks"/vitunix-os-release.hook
+  install -Dm755 vitunix-hooks-runner        		"$bin"/vitunix-hooks-runner
+ }

@@ -1,0 +1,13 @@
+# Maintainer : G0urav <https://github.com/heapbytes>
+# Developed by Team Vitunix
+#
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+
+[Action]
+Description = Updating Exodia OS OS-Specific Configurations...
+When = PostTransaction
+Exec = /usr/bin/exodia-hooks-runner os-release
