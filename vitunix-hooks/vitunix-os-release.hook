@@ -8,6 +8,6 @@ Type = Package
 Target = filesystem
 
 [Action]
-Description = Updating Exodia OS OS-Specific Configurations...
+Description = Updating Vitunix OS OS-Specific Configurations...
 When = PostTransaction
-Exec = /usr/bin/exodia-hooks-runner os-release
+Exec = /usr/bin/vitunix-hooks-runner os-release

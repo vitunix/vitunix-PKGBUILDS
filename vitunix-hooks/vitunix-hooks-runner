@@ -11,25 +11,25 @@ fix_lsb_release() {
         echo "DISTRIB_RELEASE=rolling" >> "$file"
     fi
     sed -i "$file" \
-        -e 's|^DISTRIB_ID=.*$|DISTRIB_ID=exodia|' \
+        -e 's|^DISTRIB_ID=.*$|DISTRIB_ID=Vitunix|' \
         -e 's|^DISTRIB_RELEASE=.*$|DISTRIB_RELEASE=rolling|' \
-        -e 's|^DISTRIB_DESCRIPTION=.*$|DISTRIB_DESCRIPTION=\"Exodia\"|'
+        -e 's|^DISTRIB_DESCRIPTION=.*$|DISTRIB_DESCRIPTION=\"Vitunix\"|'
 }
 
 fix_os_release() {
     local file=/usr/lib/os-release
 
     sed -i "$file" \
-        -e 's|^NAME=.*$|NAME=\"Exodia\"|' \
-        -e 's|^PRETTY_NAME=.*$|PRETTY_NAME=\"Exodia\"|' \
-        -e 's|^ID=.*$|ID=exodia|' \
+        -e 's|^NAME=.*$|NAME=\"Vitunix\"|' \
+        -e 's|^PRETTY_NAME=.*$|PRETTY_NAME=\"Vitunix\"|' \
+        -e 's|^ID=.*$|ID=Vitunix|' \
         -e 's|^ID_LIKE=.*$|ID_LIKE=arch|' \
         -e 's|^BUILD_ID=.*$|BUILD_ID=rolling|' \
-        -e 's|^HOME_URL=.*$|HOME_URL=\"https://exodia-os.github.io/exodia-website\"|' \
-        -e 's|^DOCUMENTATION_URL=.*$|DOCUMENTATION_URL=\"https://exodia-os.github.io/exodia-website/quickstart/install\"|' \
-        -e 's|^SUPPORT_URL=.*$|SUPPORT_URL=\"https://github.com/Exodia-OS/exodia-home-ISO"|' \
-        -e 's|^BUG_REPORT_URL=.*$|BUG_REPORT_URL=\"https://github.com/Exodia-OS/exodia-home-ISO/issues"|' \
-        -e 's|^LOGO=.*$|LOGO=exodia|'
+        -e 's|^HOME_URL=.*$|HOME_URL=\"https://vitunix.github.io/\"|' \
+        -e 's|^DOCUMENTATION_URL=.*$|DOCUMENTATION_URL=\"https://vitunix.github.io/wiki\"|' \
+        -e 's|^SUPPORT_URL=.*$|SUPPORT_URL=\"https://github.com/vitunix/vitunix-iso"|' \
+        -e 's|^BUG_REPORT_URL=.*$|BUG_REPORT_URL=\"https://github.com/vitunix/vitunix-iso/issues"|' \
+        -e 's|^LOGO=.*$|LOGO=Vitunix|'
 
     if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ] ; then
         # add missing ID_LIKE=
@@ -37,7 +37,7 @@ fix_os_release() {
     fi
 
 	# fix issue file
-    sed -i 's|Arch Linux|Exodia OS|g' /etc/issue /usr/share/factory/etc/issue
+    sed -i 's|Arch Linux|Vitunix|g' /etc/issue /usr/share/factory/etc/issue
 }
 
 main()

@@ -8,6 +8,6 @@ Type = Package
 Target = lsb-release
 
 [Action]
-Description = Updating Exodia OS LSB Configurations...
+Description = Updating Vitunix OS LSB Configurations...
 When = PostTransaction
-Exec = /usr/bin/exodia-hooks-runner lsb-release
+Exec = /usr/bin/vitunix-hooks-runner lsb-release
